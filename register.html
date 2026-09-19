@@ -238,7 +238,7 @@
 
 		registerForm.addEventListener('submit', (event) => {
 			const valid = [validateFullName(), validateEmail(), validatePassword(), validateConfirmPassword(), validatePhone(), validateTerms()].every(Boolean);
-			if (!valid) {
+			if (valid) { event.preventDefault(); const btn = registerForm.querySelector('button[type=submit]'); btn.textContent = 'Tạo tài khoản thành công! Đang chuyển đến trang đăng nhập...'; btn.disabled = true; setTimeout(() => { window.location.href = 'login.html'; }, 1500); return; } if (!valid) {
 				event.preventDefault();
 				const firstInvalid = [fullNameInput, emailInput, passwordInput, confirmPasswordInput, phoneInput, termsInput].find((input) => input.getAttribute('aria-invalid') === 'true');
 				if (firstInvalid) firstInvalid.focus();
