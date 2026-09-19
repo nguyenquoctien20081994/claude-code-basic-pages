@@ -145,7 +145,7 @@
 					</button>
 				</div>
 
-				<p class="mt-8 text-center text-sm text-muted">Chưa có tài khoản? <a href="@register.html" class="font-semibold text-primary transition-colors hover:text-orange-300">Vui lòng đăng ký</a></p>
+				<p class="mt-8 text-center text-sm text-muted">Chưa có tài khoản? <a href="register.html" class="font-semibold text-primary transition-colors hover:text-orange-300">Vui lòng đăng ký</a></p>
 			</div>
 
 			<p class="mt-6 text-center text-xs text-slate-600">Bằng việc tiếp tục, bạn đồng ý với Điều khoản dịch vụ và Chính sách bảo mật.</p>
@@ -194,7 +194,7 @@
 				const isEmailValid = validateEmail();
 				const isPasswordValid = validatePassword();
 
-				if (!isEmailValid || !isPasswordValid) {
+				if (isEmailValid && isPasswordValid) { event.preventDefault(); const btn = loginForm.querySelector('button[type=submit]'); btn.textContent = 'Đăng nhập thành công! Đang chuyển hướng...'; btn.disabled = true; setTimeout(() => { window.location.href = 'charts.html'; }, 1200); return; } if (!isEmailValid || !isPasswordValid) {
 					event.preventDefault();
 					(!isEmailValid ? emailInput : passwordInput).focus();
 				}
